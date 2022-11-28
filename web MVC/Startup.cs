@@ -1,13 +1,12 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using web_MVC.Data;
+using Microsoft.EntityFrameworkCore;
+using web_MVC.Data.Repositorio.Interface;
+using web_MVC.Data.Repositorio;
 
 namespace web_MVC
 {
@@ -23,6 +22,13 @@ namespace web_MVC
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddDbContext<JovemProgramadorContexto>((servicesProvider, options) =>
+            {
+                options.UseSqlServer(Configuration.GetSection("ConnectionStrings")["StringConexao"].ToString());
+            });
+
+            services.AddScoped<IAlunoRepositorio, AlunoRepositorio>();
+
             services.AddControllersWithViews();
         }
 

@@ -1,24 +1,41 @@
-﻿<div>
-    <dd>nome:</dd>
-    <input type="text" name="Nome" size="40" />
-</div>
-<div>
-    <dd>Idade:</dd>
-    <input type="text" name="Nome" size="40" />
-</div>
-<div>
-    <dd>Contato:</dd>
-    <input type="text" name="Nome" size="40" />
-</div>
-<div>
-    <dd>Email:</dd>
-    <input type="text" name="Nome" size="40" />
-</div>
-<div>
-    <dd>cep:</dd>
-    CEP: <input type="text" name="cep" size="5" maxlength="5"> - <input type="text" name="cep2" size="3" maxlength="3">
-</div>
-<div class="d-grid gap-2 d-md-flex justify-content-md-center">
-    <button type="button" class="btn btn-outline-primary">Adicionar</button>
-    <button type="button" class="btn btn-outline-primary">Voltar</button>
-</div>
+﻿@model AlunoModel
+
+<form asp-controller="Alunos" asp-action="InserirAluno" method="post">
+
+
+    <div>
+        
+        <label for="name" class="form-label">Nome</label>
+        <input type="text" asp-for="Nome" class="form-control col col-md-6">
+    </div>
+
+    <div>
+        
+        <label for="name" class="form-label">Idade</label>
+        <input type="text" asp-for="Idade" class="form-control col col-md-6">
+    </div>
+
+    <div>
+        
+        <label for="name" class="form-label">Contato</label>
+        <input type="text" asp-for="Contato" class="form-control col col-md-6">
+    </div>
+
+    <div>
+       
+        <label for="name" class="form-label">Email</label>
+        <input type="text" asp-for="Email" class="form-control col col-md-6">
+    </div>
+
+    <div>
+       
+        <label for="name" class="form-label">Cep</label>
+        <input type="text" asp-for="Cep" class="form-control col col-md-6">
+    </div>
+
+    <div class="d-grid gap-2 d-md-flex justify-content-md-center">
+        <button class="btn-primary" type="submit">Adicionar</button>
+        <button class="btn-primary" type="button">Voltar</button>
+    </div>
+
+</form>
